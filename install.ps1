@@ -150,17 +150,6 @@ try {
 } catch {
     Write-Error-Log "Installation failed: $($_.Exception.Message)"
     exit 1
-} finally {
-    # Cleanup temporary files
-    try {
-        Write-Log "Cleaning up temporary files"
-        if (Test-Path $TempPath) {
-            Remove-Item -Path $TempPath -Recurse -Force
-            Write-Log "Temporary files cleaned up successfully"
-        }
-    } catch {
-        Write-Error-Log "Failed to clean up temporary files: $($_.Exception.Message)"
-    }
 }
 
 Write-Log "Script execution completed"
