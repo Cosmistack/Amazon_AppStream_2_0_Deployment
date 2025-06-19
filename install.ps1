@@ -8,10 +8,10 @@
 # It also supports a "ForceInstall" option that removes any existing AppStreamClient directory from %localappdata% before proceeding with the installation (by default,
 # the AppStream Client will not install if this folder is present).
 #
-# NOTE: The AppStream Client will not be immediately available after running this script. The AppStream Client Installer requires either a system restart or a user
-# logoff/logon to complete the installation process. This script provides a "RebootAfterInstall" option to automatically reboot the system after installation to automate this step, if desired.
-#
 # The script also includes a "NoUSBDriver" option to skip the installation of the USB driver if you do not want to install it.
+# 
+# NOTE: The AppStream Client will not be immediately available after running this script. The AppStream Client Installer requires a user
+# logoff/logon to complete the installation process.
 #
 # The script is intended to be run with administrative privileges.
 #
@@ -31,7 +31,6 @@
 #
 param(
     [switch]$ForceInstall = $false,
-    [switch]$RebootAfterInstall = $false,
     [switch]$NoUSBDriver = $false
 )
 
@@ -139,14 +138,7 @@ try {
         Write-Log "USB driver installation skipped via NoUSBDriver option"
     }
     
-    Write-Log "Amazon AppStream Client installation process completed"
-    
-    if ($RebootAfterInstall) {
-        Write-Log "Rebooting system as per RebootAfterInstall option"
-        Restart-Computer -Force
-    } else {
-        Write-Log "Installation completed. Please log off or restart your system to finalize the installation."
-    }
+    Write-Log "Amazon AppStream Client installation process completed. Please sign out and sign back in to finalize the installation."
 } catch {
     Write-Error-Log "Installation failed: $($_.Exception.Message)"
     exit 1

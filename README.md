@@ -11,10 +11,10 @@ View full system requirements here: https://docs.aws.amazon.com/en_us/appstream2
 It also supports a `ForceInstall` option that removes any existing AppStreamClient directory from `%localappdata%` before proceeding with the installation (by default,
 the AppStream Client Installer will not proceed if this folder is present).
 
-NOTE: The AppStream Client will not be immediately available after running this script. The AppStream Client Installer requires either a system restart or a user
-logoff/logon to complete the installation process. This script provides a `RebootAfterInstall` option to automatically reboot the system after installation to automate this step, if desired.
-
 The script also includes a `NoUSBDriver` option to skip the installation of the USB driver if you do not want to install it.
+
+NOTE: The AppStream Client will not be immediately available after running this script. The AppStream Client Installer requires a user
+logoff/logon to complete the installation process.
 
 The script is intended to be run with administrative privileges.
 
