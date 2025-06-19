@@ -14,7 +14,7 @@ the AppStream Client Installer will not proceed if this folder is present).
 NOTE: The AppStream Client will not be immediately available after running this script. The AppStream Client Installer requires either a system restart or a user
 logoff/logon to complete the installation process. This script provides a `RebootAfterInstall` option to automatically reboot the system after installation to automate this step, if desired.
 
-The script also includes a "NoUSBDriver" option to skip the installation of the USB driver if you do not want to install it.
+The script also includes a `NoUSBDriver` option to skip the installation of the USB driver if you do not want to install it.
 
 The script is intended to be run with administrative privileges.
 
